@@ -1,0 +1,339 @@
+﻿body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+p {
+    font-size: 12px;
+}
+
+h3 {
+    font-size: 14px;
+}
+
+.navbar {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f4f5f7;
+    border-bottom: 1px solid #dfe1e6;
+}
+
+.nav1, .nav2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.navbar a {
+    color: #172b4d;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+    .navbar a.active {
+        color: #fff;
+        background-color: #0079bf;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .navbar a:hover {
+        background-color: #eaeded;
+    }
+
+    .navbar a.active:hover {
+        background-color: #0067a3;
+    }
+
+.navbar input {
+    padding: 6px 10px;
+    border: 1px solid #dfe1e6;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+    .navbar input::placeholder {
+        color: #5e6c84;
+    }
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 8px;
+    margin: 20px;
+}
+
+.div1 {
+    grid-row: span 2 / span 2;
+    padding: 16px;
+}
+
+    .div1 a {
+        color: #172b4d;
+        text-decoration: none;
+        display: block;
+        padding: 8px 12px;
+        font-size: 14px;
+        font-weight: 500;
+        border-radius: 4px;
+        margin-bottom: 4px;
+    }
+
+        .div1 a:hover {
+            background-color: #f4f5f7;
+        }
+
+    .div1 hr {
+        border: none;
+        border-top: 1px solid #dfe1e6;
+        margin: 12px 0;
+    }
+
+.div2 {
+    grid-column: span 4 / span 4;
+    grid-row: span 5 / span 5;
+    background-color: #fff;
+    padding: 16px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    color: #172b4d;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #f4f5f7;
+}
+
+    .dropbtn:hover {
+        background-color: #eaeded;
+    }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+    .dropdown-content a {
+        color: #172b4d;
+        padding: 10px 16px;
+        text-decoration: none;
+        display: block;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+        .dropdown-content a:hover {
+            background-color: #f4f5f7;
+        }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
+
+    a.active {
+        color: #fff;
+        background-color: #0079bf;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+.list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+    gap: 10px; /* Space between lists */
+    padding: 20px;
+    overflow-x: auto; /* Scroll horizontally if too many lists */
+}
+
+.list {
+    /* Remove inline-block and related properties */
+    width: 250px; /* Fixed width for consistency */
+    background-color: #f4f5f7;
+    border-radius: 4px;
+    padding: 10px;
+    min-height: 100px; /* Ensure drop zone is tall enough */
+}
+
+    .list div {
+        margin-bottom: 8px;
+    }
+
+    .list h3 {
+        margin: 0;
+        font-size: 14px;
+        color: #172b4d;
+    }
+
+    .list p {
+        margin: 0;
+        padding: 8px;
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        font-size: 12px;
+    }
+
+.add-card-btn {
+    width: 100%;
+    padding: 8px;
+    background-color: #dfe1e6;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    color: #172b4d;
+}
+
+    .add-card-btn:hover {
+        background-color: #c1c7d0;
+    }
+
+.add-list-btn {
+    padding: 10px;
+    background-color: #dfe1e6;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #172b4d;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+}
+
+    .add-list-btn:hover {
+        background-color: #c1c7d0;
+    }
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    width: 300px;
+    padding: 20px;
+    border-radius: 4px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+    .modal-content h3 {
+        margin: 0 0 10px 0;
+        font-size: 16px;
+        color: #172b4d;
+    }
+
+    .modal-content input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #dfe1e6;
+        border-radius: 4px;
+        font-size: 14px;
+        box-sizing: border-box;
+    }
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.modal-submit-btn, .modal-cancel-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.modal-submit-btn {
+    background-color: #0079bf;
+    color: #fff;
+}
+
+    .modal-submit-btn:hover {
+        background-color: #0067a3;
+    }
+
+.modal-cancel-btn {
+    background-color: #dfe1e6;
+    color: #172b4d;
+}
+
+    .modal-cancel-btn:hover {
+        background-color: #c1c7d0;
+    }
+
+.assign-to-someone--btn {
+    padding: 4px 8px;
+    background-color: #dfe1e6;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+    .assign-to-someone--btn:hover {
+        background-color: #c1c7d0;
+    }
+
+.assignee {
+    font-size: 12px;
+    color: #5e6c84;
+    margin-left: 5px;
+}
+
+.drag-handle {
+    cursor: grab;
+    margin-right: 5px;
+    color: #5e6c84;
+    font-size: 14px;
+}
+
+.list p.dragging {
+    opacity: 0.5;
+}
+
+.list.drag-over {
+    background-color: #e2e4e9;
+    border: 2px dashed #0079bf;
+}

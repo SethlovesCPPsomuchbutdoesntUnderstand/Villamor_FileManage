@@ -1,0 +1,191 @@
+﻿
+body {
+    margin: 0; /* Ensure no default margins */
+    font-family: 'Roboto', sans-serif; /* Ensure global font consistency */
+}
+
+.navbar {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f4f5f7;
+    border-bottom: 1px solid #dfe1e6;
+}
+
+.nav1, .nav2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.navbar a {
+    color: #172b4d;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+    .navbar a.active {
+        color: #fff;
+        background-color: #0079bf;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 14px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 700;
+    }
+
+    .navbar a:hover {
+        background-color: #eaeded;
+    }
+
+    .navbar a.active:hover {
+        background-color: #0067a3;
+    }
+
+.navbar input {
+    padding: 6px 10px;
+    border: 1px solid #dfe1e6;
+    border-radius: 4px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+    .navbar input::placeholder {
+        color: #5e6c84;
+    }
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 8px;
+    margin: 20px; /* Add margin for spacing */
+}
+
+.div1 {
+    grid-row: span 2 / span 2;
+    padding: 16px; /* Inner padding */
+}
+    .div1 a {
+        font-size: 12px;
+    }
+    .div1 h3 {
+        font-size: 14px;
+    }
+
+    .div1 a {
+        color: #172b4d; /* Trello text color */
+        text-decoration: none;
+        display: block; /* Full-width clickable area */
+        padding: 8px 12px; /* Padding for links */
+        font-size: 14px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        border-radius: 4px;
+        margin-bottom: 4px; /* Space between links */
+    }
+
+        .div1 a:hover {
+            background-color: #f4f5f7; /* Light hover effect */
+        }
+
+    .div1 hr {
+        border: none;
+        border-top: 1px solid #dfe1e6; /* Light divider */
+        margin: 12px 0; /* Spacing above and below */
+    }
+
+.div2 {
+    grid-column: span 4 / span 4;
+    grid-row: span 5 / span 5;
+    background-color: #fff; /* Temporary styling for visibility */
+    padding: 16px;
+}
+    
+    .div2 p {
+        font-size: 10px;
+    }
+    .div2 h3 {
+        font-size: 14px;
+    }
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    color: #172b4d;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    background-color: #f4f5f7;
+}
+
+    .dropbtn:hover {
+        background-color: #eaeded;
+    }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+    .dropdown-content a {
+        color: #172b4d;
+        padding: 10px 16px;
+        text-decoration: none;
+        display: block;
+        font-size: 14px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+    }
+
+        .dropdown-content a:hover {
+            background-color: #f4f5f7;
+        }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+/* General rule for all <a> tags to remove underline */
+a {
+    text-decoration: none; /* Removes default underline */
+}
+
+    /* Specific styling for .active class */
+    a.active {
+        color: #fff;
+        background-color: #0079bf;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 14px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 700;
+        text-decoration: none; /* Ensures no underline, though inherited from above */
+    }
+
+.users {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: lightblue;
+    margin: 10px;
+    font-size: 16px; /* Reset font-size for content */
+    text-align: center;
+    line-height: 100px; /* Center text vertically */
+    color: white;
+}
+
