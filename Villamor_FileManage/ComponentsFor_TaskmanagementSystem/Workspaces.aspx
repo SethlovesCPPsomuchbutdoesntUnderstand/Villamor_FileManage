@@ -61,7 +61,14 @@
                     <span class="close-btn" onclick="closeModal()">×</span>
                 </div>
                 <div class="modal-body">
+                    <!-- Workspace Name -->
                     <input type="text" id="workspaceName" class="input-field" placeholder="Enter workspace name" />
+                    
+                    <!-- Workspace Description -->
+                    <textarea id="workspaceDescription" class="input-field" placeholder="Enter workspace description (optional)"></textarea>
+                    
+                    <!-- Hidden Field for CreatedBy -->
+                    <input type="hidden" id="createdBy" value="User123" />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="cancel-btn" onclick="closeModal()">Cancel</button>
@@ -85,44 +92,40 @@
             setTimeout(() => {
                 modal.style.display = 'none';
                 document.getElementById('workspaceName').value = '';
+                document.getElementById('workspaceDescription').value = '';
             }, 200);
         }
 
         function createWorkspace() {
             const workspaceName = document.getElementById('workspaceName').value.trim();
+            const workspaceDescription = document.getElementById('workspaceDescription').value.trim();
+            const createdBy = document.getElementById('createdBy').value;
 
             if (!workspaceName) {
                 alert('Please enter a workspace name!');
                 return;
             }
 
-            // Create new dropdown element
-            const div1 = document.querySelector('.div1');
-            const newDropdown = document.createElement('div');
-            newDropdown.className = 'dropdown';
-
-            const newDropbtn = document.createElement('a');
-            newDropbtn.href = '#';
-            newDropbtn.className = 'dropbtn';
-            newDropbtn.textContent = workspaceName;
-
-            const newDropdownContent = document.createElement('div');
-            newDropdownContent.className = 'dropdown-content';
-
-            const links = ['Getting Started', 'Boards', 'Views', 'Members', 'Settings'];
-            links.forEach(linkText => {
-                const link = document.createElement('a');
-                link.href = '#';
-                link.textContent = linkText;
-                newDropdownContent.appendChild(link);
-            });
-
-            newDropdown.appendChild(newDropbtn);
-            newDropdown.appendChild(newDropdownContent);
-            div1.appendChild(newDropdown);
-
-            // Close modal
-            closeModal();
+            // Send data to the server (or process locally for now)
+            fetch('Workspaces.aspx/CreateWorkspace', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    workspaceName: workspaceName,
+                    workspaceDescription: workspaceDescription,
+                    createdBy: createdBy
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.d) { // 'd' contains the response from the server
+                        alert(data.d);
+                        location.reload(); // Reload the page to reflect new workspace
+                    }
+                })
+                .catch(error => console.error('Error:', error));
         }
 
         // Close modal when clicking outside

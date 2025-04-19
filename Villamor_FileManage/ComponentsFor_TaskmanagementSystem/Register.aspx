@@ -20,7 +20,7 @@
                 <asp:TextBox ID="confirmpasswordTextBox" runat="server" placeholder="Confirm your password" CssClass="confirmpassword-input" TextMode="Password" />
 
                 <p><asp:CheckBox ID="CheckBox1" runat="server" />By signing up, I accept the Atlassian Cloud Terms of Service and acknowledge the Privacy Policy.</p>
-                <asp:Button ID="signUpButton" runat="server" Text="Sign up" CssClass="sign-up-button" />
+                <asp:Button ID="signUpButton" runat="server" Text="Sign up" CssClass="sign-up-button" OnClick="SignUpButton_Click" />
                 
                 <asp:Button ID="logInButton" runat="server" Text="Already have an AssignIt account? Log in" CssClass="link-button" OnClick="LogInButton_Click" />
                 <div class="footer">
