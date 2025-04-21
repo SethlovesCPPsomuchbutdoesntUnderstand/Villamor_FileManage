@@ -76,5 +76,14 @@ namespace Villamor_FileManage.ComponentsFor_TaskmanagementSystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button createAccountButton;
+
+        /// <summary>
+        /// errorMessageLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorMessageLabel;
     }
 }

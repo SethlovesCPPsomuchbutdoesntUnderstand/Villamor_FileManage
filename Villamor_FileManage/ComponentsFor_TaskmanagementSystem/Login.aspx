@@ -25,6 +25,8 @@
                 <div class="action-buttons">
                     <asp:Button ID="cantLoginButton" runat="server" Text="Can't log in?" CssClass="link-button" OnClick="CantLoginButton_Click" />
                     <asp:Button ID="createAccountButton" runat="server" Text="Create an account" CssClass="link-button" OnClick="CreateAccountButton_Click" />
+                    <br />
+                    <asp:Label ID="errorMessageLabel" runat="server"></asp:Label>
                 </div>
                 <div class="footer">
                     <p>One account for AssignIt, Jira, Confluence and more.</p>

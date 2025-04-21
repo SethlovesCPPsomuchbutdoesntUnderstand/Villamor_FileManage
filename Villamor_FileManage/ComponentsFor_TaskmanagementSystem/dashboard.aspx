@@ -1,18 +1,18 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="dashboard.aspx.cs" Inherits="Villamor_FileManage.ComponentsFor_TaskmanagementSystem.dashboard" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="Villamor_FileManage.ComponentsFor_TaskmanagementSystem.Workspaces" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Dashboard</title>
+    <title>Workspaces</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="dashboardstylesheet.css" rel="stylesheet">
+    <link href="wpstylesheet.css" rel="stylesheet">
 </head>
 <body>
     <form id="form1" runat="server">
         <div class="navbar">
             <div class="nav1">
-                <a class="active" href="dashboard.aspx">AssignIt</a>
+                <a class="active" href="Workspaces.aspx">AssignIt</a>
                 <a href="#">Workspaces</a>
                 <a href="#">Recent</a>
                 <a href="#">Starred</a>
@@ -44,122 +44,72 @@
                     </div>
                 </div>
             </div>
-            <div class="div2">
+            <div class="div2" id="div2" runat="server">
                 <div class="logosec">
-                    <a class="active1">AssignIt Workspace</a>
+                    <a class="active">AssignIt Workspace</a>
                 </div>
                 <hr />
-                <div>
-                    <h3>Boards</h3>
-                    <h4>My Boards</h4>
-                    <div class="boardcontainer" id="boardContainer">
-                        <!-- Dynamic Boards will appear here -->
-                    </div>
+                <div id="workspaceContainer" runat="server" class="workspace-container">
+    <!-- Dynamic workspaces will be loaded here -->
+</div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal1" id="modal1">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Create New Workspace</h3>
+                    <span class="close-btn" onclick="closeModal()">×</span>
                 </div>
-                <!-- Modal -->
-                <div class="modal1" id="modal1">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h3>Create New Board</h3>
-                            <span class="close-btn" onclick="closeModal()">×</span>
-                        </div>
-                        <div class="modal-body">
-                            <input type="text" id="boardName" class="input-field" placeholder="Enter board name" />
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="cancel-btn" onclick="closeModal()">Cancel</button>
-                            <button type="button" class="create-btn" onclick="createBoard()">Create</button>
-                        </div>
-                    </div>
+                <div class="modal-body">
+                    <input type="text" id="workspaceName" name="workspaceName" class="input-field" placeholder="Enter workspace name" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="cancel-btn" onclick="closeModal()">Cancel</button>
+                    <button type="button" class="create-btn" onclick="createWorkspace()">Create</button>
                 </div>
             </div>
         </div>
-    </form>
-    <script>
-        const boardContainer = document.getElementById('boardContainer');
-        const boardModal = document.getElementById('modal1');
-        const boardNameInput = document.getElementById('boardName');
 
+        <!-- Hidden button for postback -->
+        <asp:Button ID="CreateWorkspaceButton" runat="server" style="display: none;" OnClick="CreateWorkspaceButton_Click" />
+    </form>
+
+    <script>
         function openModal() {
-            boardModal.style.display = 'block';
-            boardModal.classList.add('show');
-            boardNameInput.focus();
+            const modal = document.getElementById('modal1');
+            modal.style.display = 'block';
+            modal.classList.add('show');
+            document.getElementById('workspaceName').focus();
         }
 
         function closeModal() {
-            boardModal.classList.remove('show');
+            const modal = document.getElementById('modal1');
+            modal.classList.remove('show');
             setTimeout(() => {
-                boardModal.style.display = 'none';
-                boardNameInput.value = '';
+                modal.style.display = 'none';
+                document.getElementById('workspaceName').value = '';
             }, 200);
         }
 
-        function createBoard() {
-            const boardName = boardNameInput.value.trim();
-            if (!boardName) {
-                alert('Please enter a board name!');
+        function createWorkspace() {
+            const workspaceName = document.getElementById('workspaceName').value.trim();
+
+            if (!workspaceName) {
+                alert('Please enter a workspace name!');
                 return;
             }
 
-            // Create board element
-            const board = document.createElement('div');
-            board.className = 'board1';
-
-            const boardTitle = document.createElement('h3');
-            boardTitle.textContent = boardName;
-            boardTitle.style.color = '#fff';
-
-            const addListButton = document.createElement('button');
-            addListButton.textContent = 'Add List';
-            addListButton.className = 'add-card-btn';
-            addListButton.onclick = function () {
-                const listName = prompt('Enter list name:');
-                if (listName) {
-                    createList(board, listName);
-                }
-            };
-
-            board.appendChild(boardTitle);
-            board.appendChild(addListButton);
-            boardContainer.appendChild(board);
-
+            // Trigger server-side postback
+            document.getElementById('<%= CreateWorkspaceButton.ClientID %>').click();
             closeModal();
-        }
-
-        function createList(board, listName) {
-            // Create list element
-            const list = document.createElement('div');
-            list.className = 'list';
-
-            const listTitle = document.createElement('h4');
-            listTitle.textContent = listName;
-
-            const addCardButton = document.createElement('button');
-            addCardButton.textContent = 'Add Card';
-            addCardButton.className = 'add-card-btn';
-            addCardButton.onclick = function () {
-                const cardName = prompt('Enter card name:');
-                if (cardName) {
-                    createCard(list, cardName);
-                }
-            };
-
-            list.appendChild(listTitle);
-            list.appendChild(addCardButton);
-            board.appendChild(list);
-        }
-
-        function createCard(list, cardName) {
-            // Create card element
-            const card = document.createElement('div');
-            card.className = 'card';
-            card.textContent = cardName;
-            list.appendChild(card);
         }
 
         // Close modal when clicking outside
         window.onclick = function (event) {
-            if (event.target === boardModal) {
+            const modal = document.getElementById('modal1');
+            if (event.target === modal) {
                 closeModal();
             }
         };

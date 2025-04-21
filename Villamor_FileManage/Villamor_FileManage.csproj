@@ -70,8 +70,6 @@
     <Content Include="ComponentsFor_TaskmanagementSystem\Board.aspx" />
     <Content Include="ComponentsFor_TaskmanagementSystem\board.css" />
     <Content Include="ComponentsFor_TaskmanagementSystem\boardjs.js" />
-    <Content Include="ComponentsFor_TaskmanagementSystem\dashboard.aspx" />
-    <Content Include="ComponentsFor_TaskmanagementSystem\dashboardstylesheet.css" />
     <Content Include="ComponentsFor_TaskmanagementSystem\images\dotsettingsIcon.jpg" />
     <Content Include="ComponentsFor_TaskmanagementSystem\images\letter-a2.png" />
     <Content Include="ComponentsFor_TaskmanagementSystem\images\lettera2.png" />
@@ -83,7 +81,7 @@
     <Content Include="ComponentsFor_TaskmanagementSystem\recoverystylesheet.css" />
     <Content Include="ComponentsFor_TaskmanagementSystem\registration-stylesheet.css" />
     <Content Include="ComponentsFor_TaskmanagementSystem\Register.aspx" />
-    <Content Include="ComponentsFor_TaskmanagementSystem\Workspaces.aspx" />
+    <Content Include="ComponentsFor_TaskmanagementSystem\Dashboard.aspx" />
     <Content Include="ComponentsFor_TaskmanagementSystem\wpstylesheet.css" />
     <Content Include="FileUploadAct.aspx" />
     <Content Include="Web.config" />
@@ -95,13 +93,6 @@
     </Compile>
     <Compile Include="ComponentsFor_TaskmanagementSystem\Board.aspx.designer.cs">
       <DependentUpon>Board.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ComponentsFor_TaskmanagementSystem\dashboard.aspx.cs">
-      <DependentUpon>dashboard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ComponentsFor_TaskmanagementSystem\dashboard.aspx.designer.cs">
-      <DependentUpon>dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="ComponentsFor_TaskmanagementSystem\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -131,12 +122,12 @@
     <Compile Include="ComponentsFor_TaskmanagementSystem\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ComponentsFor_TaskmanagementSystem\Workspaces.aspx.cs">
-      <DependentUpon>Workspaces.aspx</DependentUpon>
+    <Compile Include="ComponentsFor_TaskmanagementSystem\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ComponentsFor_TaskmanagementSystem\Workspaces.aspx.designer.cs">
-      <DependentUpon>Workspaces.aspx</DependentUpon>
+    <Compile Include="ComponentsFor_TaskmanagementSystem\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="FileUploadAct.aspx.cs">
       <DependentUpon>FileUploadAct.aspx</DependentUpon>
